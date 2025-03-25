@@ -8,7 +8,13 @@
 import UIKit
 
 class GameViewController: UIViewController {
-    
+   
+    var wordPairs: [WordPair] = [
+           WordPair(english: "cat", swedish: "katt"),
+           WordPair(english: "dog", swedish: "hund"),
+           WordPair(english: "bird", swedish: "fågel")
+       ]
+       
     
     @IBOutlet weak var labelWordTimer: UILabel!
     @IBOutlet weak var labelPoints: UILabel!

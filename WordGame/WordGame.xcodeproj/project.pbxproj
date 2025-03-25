@@ -17,6 +17,7 @@
 		4EE638F12D929E4E001712A1 /* WordGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE638F02D929E4E001712A1 /* WordGameTests.swift */; };
 		4EE638FB2D929E4E001712A1 /* WordGameUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE638FA2D929E4E001712A1 /* WordGameUITests.swift */; };
 		4EE638FD2D929E4E001712A1 /* WordGameUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE638FC2D929E4E001712A1 /* WordGameUITestsLaunchTests.swift */; };
+		4EE639142D92CFF1001712A1 /* wordPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE639132D92CFF1001712A1 /* wordPair.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		4EE638F62D929E4E001712A1 /* WordGameUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WordGameUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EE638FA2D929E4E001712A1 /* WordGameUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordGameUITests.swift; sourceTree = "<group>"; };
 		4EE638FC2D929E4E001712A1 /* WordGameUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordGameUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		4EE639132D92CFF1001712A1 /* wordPair.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wordPair.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				4EE638E42D929E4D001712A1 /* LaunchScreen.storyboard */,
 				4EE638E72D929E4D001712A1 /* Info.plist */,
 				1063B61E2D92AAE100092807 /* GameViewController.swift */,
+				4EE639132D92CFF1001712A1 /* wordPair.swift */,
 			);
 			path = WordGame;
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1063B61F2D92AAE100092807 /* GameViewController.swift in Sources */,
+				4EE639142D92CFF1001712A1 /* wordPair.swift in Sources */,
 				4EE638DE2D929E4A001712A1 /* ViewController.swift in Sources */,
 				4EE638DA2D929E4A001712A1 /* AppDelegate.swift in Sources */,
 				4EE638DC2D929E4A001712A1 /* SceneDelegate.swift in Sources */,
