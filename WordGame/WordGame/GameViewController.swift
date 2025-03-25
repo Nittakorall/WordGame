@@ -9,6 +9,14 @@ import UIKit
 
 class GameViewController: UIViewController {
     
+    var wordPairs: [WordPair] = [
+        WordPair(english: "cat", swedish: "katt"),
+        WordPair(english: "dog", swedish: "hund"),
+        WordPair(english: "bird", swedish: "fågel")
+    ]
+    
+    var usedIndexes: [Int] = []
+    var score = 0
     
     @IBOutlet weak var labelWordTimer: UILabel!
     @IBOutlet weak var labelPoints: UILabel!
@@ -17,21 +25,50 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        showRandomSwedishWord()
+        updateScore()
     }
     
-
+    func showRandomSwedishWord() {
+        
+        if usedIndexes.count == wordPairs.count {
+           
+           // usedIndexes.removeAll() if we want it to loop
+        }
+        
+        
+        var randomIndex: Int
+        repeat {
+            randomIndex = Int.random(in: 0..<wordPairs.count)
+        } while usedIndexes.contains(randomIndex)
+        usedIndexes.append(randomIndex)
+        
+        
+        let selectedWordPair = wordPairs[randomIndex]
+        labelWord.text = selectedWordPair.swedish
+    }
+    
     @IBAction func btnCheckAnswer(_ sender: UIButton) {
+        
+        if let userTranslation = textFieldTranslation.text, !userTranslation.isEmpty {
+            let currentWord = wordPairs[usedIndexes.last!]
+                if userTranslation.lowercased() == currentWord.english.lowercased() {
+                            
+                               score = score + 1
+                               print("Correct! Current score: \(score)")
+                           } else {
+                               score = score - 1
+                               print("Incorrect.")
+                           }
+                       
+        }
+        updateScore()
+        textFieldTranslation.text = ""
+        showRandomSwedishWord()
     }
-    /*
-    // MARK: - Navigation
+    func updateScore() {
+           labelPoints.text = "Poäng: \(score)"
+       }
+   }
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-}
