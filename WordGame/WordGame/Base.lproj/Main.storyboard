@@ -25,7 +25,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Start Game"/>
                                         <connections>
-                                            <segue destination="xX7-We-UAg" kind="show" id="vHy-co-hKV"/>
+                                            <segue destination="xX7-We-UAg" kind="presentation" id="vHy-co-hKV"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fSf-qV-71h">
@@ -52,7 +52,7 @@
         <!--Game View Controller-->
         <scene sceneID="e2z-io-maQ">
             <objects>
-                <viewController id="xX7-We-UAg" customClass="GameViewController" customModule="WordGame" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GameViewController" id="xX7-We-UAg" customClass="GameViewController" customModule="WordGame" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YZ7-IN-Mnh">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -127,11 +127,90 @@
                         <outlet property="labelWord" destination="dkT-Ya-UHf" id="lg5-02-eeC"/>
                         <outlet property="labelWordTimer" destination="Ooe-Rn-ePH" id="XNg-zg-l3R"/>
                         <outlet property="textFieldTranslation" destination="SAa-eh-JWh" id="2cV-ES-pRb"/>
+                        <segue destination="O4S-Mt-zkl" kind="presentation" identifier="showEndGameViewController" id="VYD-Da-0ok"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gWf-H2-Is7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="916.79389312977094" y="-27.464788732394368"/>
+        </scene>
+        <!--End Game View Controller-->
+        <scene sceneID="vOx-PG-1IE">
+            <objects>
+                <viewController id="O4S-Mt-zkl" customClass="EndGameViewController" customModule="WordGame" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IGj-hk-aby">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="nli-gf-QzR">
+                                <rect key="frame" x="10" y="167" width="373" height="87"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your score: -00 points." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="itE-8J-Q9H">
+                                        <rect key="frame" x="23" y="0.0" width="327" height="36"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="36" id="28g-7e-EKt"/>
+                                            <constraint firstAttribute="width" constant="327" id="odw-I4-WGm"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your time: 00:00." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vqr-Wr-dYw">
+                                        <rect key="frame" x="59" y="51" width="255" height="36"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="255" id="IFR-39-WdH"/>
+                                            <constraint firstAttribute="height" constant="36" id="e8P-em-NjW"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="r1I-HJ-AEx">
+                                <rect key="frame" x="100" y="666" width="193" height="106"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s19-kB-NJC">
+                                        <rect key="frame" x="36" y="0.0" width="121" height="43"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="121" id="Tct-Tk-zds"/>
+                                            <constraint firstAttribute="height" constant="43" id="WVZ-Uc-Lvf"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Play Again"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rHa-eE-MK9">
+                                        <rect key="frame" x="36" y="63" width="121" height="43"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="121" id="4jJ-tC-yHy"/>
+                                            <constraint firstAttribute="height" constant="43" id="wpn-CA-ChT"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Start Page"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="QyP-m6-1G9"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="QyP-m6-1G9" firstAttribute="trailing" secondItem="r1I-HJ-AEx" secondAttribute="trailing" constant="100" id="Pw8-NU-YSv"/>
+                            <constraint firstItem="nli-gf-QzR" firstAttribute="top" secondItem="QyP-m6-1G9" secondAttribute="top" constant="167" id="aV3-SQ-jCe"/>
+                            <constraint firstItem="QyP-m6-1G9" firstAttribute="bottom" secondItem="r1I-HJ-AEx" secondAttribute="bottom" constant="70" id="bLH-SF-lcz"/>
+                            <constraint firstItem="QyP-m6-1G9" firstAttribute="trailing" secondItem="nli-gf-QzR" secondAttribute="trailing" constant="10" id="gW2-94-WJl"/>
+                            <constraint firstItem="r1I-HJ-AEx" firstAttribute="leading" secondItem="QyP-m6-1G9" secondAttribute="leading" constant="100" id="paC-dj-ATG"/>
+                            <constraint firstItem="nli-gf-QzR" firstAttribute="leading" secondItem="QyP-m6-1G9" secondAttribute="leading" constant="10" id="s0c-Ny-sXF"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="bO6-nV-vif"/>
+                    <connections>
+                        <outlet property="labelFinalScore" destination="itE-8J-Q9H" id="iyB-0k-H89"/>
+                        <outlet property="labelFinalTime" destination="vqr-Wr-dYw" id="C4y-TO-F7O"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3JC-uJ-iAq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1777.8625954198474" y="-356.33802816901408"/>
         </scene>
     </scenes>
     <resources>
