@@ -32,6 +32,8 @@ class GameViewController: UIViewController {
     var wordTimer : Timer?
     var gameTimer : Timer?
     var totalTime: Int = 0
+    // viewDidLoad kept running every second which triggered the performSegue every time. Therefore I created this variable to stop it.
+    var isEndGamePresented = false
     
     @IBOutlet weak var labelWordTimer: UILabel!
     @IBOutlet weak var labelPoints: UILabel!
@@ -51,18 +53,21 @@ class GameViewController: UIViewController {
     }
     
     func showRandomSwedishWord() {
-        if usedIndexes.count == wordPairs.count {
-           // usedIndexes.removeAll() if we want it to loop
+        if usedIndexes.count == wordPairs.count && !isEndGamePresented {
+//            usedIndexes.removeAll() //if we want it to loop
+            isEndGamePresented = true
+            performSegue(withIdentifier: "showEndGameViewController", sender: self)
+            // Had to put this in an else-block for the segue to be performed, otherwise the loop kept going and stopped the performSegue.
+        } else {
+            var randomIndex: Int
+            repeat {
+                randomIndex = Int.random(in: 0..<wordPairs.count)
+            } while usedIndexes.contains(randomIndex)
+            usedIndexes.append(randomIndex)
+            
+            let selectedWordPair = wordPairs[randomIndex]
+            labelWord.text = selectedWordPair.swedish
         }
-        
-        var randomIndex: Int
-        repeat {
-            randomIndex = Int.random(in: 0..<wordPairs.count)
-        } while usedIndexes.contains(randomIndex)
-        usedIndexes.append(randomIndex)
-        
-        let selectedWordPair = wordPairs[randomIndex]
-        labelWord.text = selectedWordPair.swedish
     }
     
     @IBAction func btnCheckAnswer(_ sender: UIButton) {
@@ -136,6 +141,25 @@ class GameViewController: UIViewController {
     // Removes connection to NotificationCenter when View Controller is deinitialised to prevent memory leaks.
     deinit {
         NotificationCenter.default.removeObserver(self)
+    }
+    
+    // Inactive timers and set to nil when view disappears.
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        wordTimer?.invalidate()
+        wordTimer = nil
+        gameTimer?.invalidate()
+        gameTimer = nil
+    }
+    
+    // Sending score and total game time to EndGameViewController when performSegue runs.
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showEndGameViewController" {
+           if let destinationVC = segue.destination as? EndGameViewController {
+               destinationVC.finalScore = score
+               destinationVC.finalTime = totalTime
+           }
+       }
     }
     
 }
