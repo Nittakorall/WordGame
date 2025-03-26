@@ -8,8 +8,10 @@
 import Foundation
 
 class WordLists {
+    // Singleton.
     static let shared = WordLists()
     
+    // Initialise default lists for different difficulty levels.
     private init() {
         easyWordPairList.append(WordPair(english: "cat", swedish: "katt"))
         easyWordPairList.append(WordPair(english: "dog", swedish: "hund"))
@@ -45,6 +47,7 @@ class WordLists {
         hardWordPairList.append(WordPair(english: "heresy", swedish: "kätteri"))
     }
     
+    // Lists for different difficulty levels.
     var easyWordPairList: [WordPair] = []
     var mediumWordPairList: [WordPair] = []
     var hardWordPairList: [WordPair] = []
