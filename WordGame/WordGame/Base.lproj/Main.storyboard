@@ -110,16 +110,29 @@
                                     <segue destination="xX7-We-UAg" kind="presentation" identifier="startGameDifficulty" id="Kel-Hz-xRd"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XZz-i8-sTf">
+                                <rect key="frame" x="313" y="20" width="53" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Info">
+                                    <color key="baseBackgroundColor" systemColor="systemTealColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="btnDisplayInfo:" destination="nFN-8J-Ict" eventType="touchUpInside" id="3Mi-qe-bYb"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Gw5-4f-hU0"/>
                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                         <constraints>
                             <constraint firstItem="rRp-lc-44l" firstAttribute="centerX" secondItem="Qk0-Zv-lT3" secondAttribute="centerX" id="E96-Lp-oWq"/>
                             <constraint firstItem="Tlk-Si-jnl" firstAttribute="centerX" secondItem="Qk0-Zv-lT3" secondAttribute="centerX" id="ILP-lW-bej"/>
+                            <constraint firstItem="XZz-i8-sTf" firstAttribute="top" secondItem="Gw5-4f-hU0" secondAttribute="top" constant="20" id="N6n-C6-N7f"/>
+                            <constraint firstItem="Gw5-4f-hU0" firstAttribute="trailing" secondItem="XZz-i8-sTf" secondAttribute="trailing" constant="27" id="SDF-4F-0pD"/>
                             <constraint firstItem="rRp-lc-44l" firstAttribute="centerY" secondItem="Qk0-Zv-lT3" secondAttribute="centerY" id="WmH-z6-Via"/>
                             <constraint firstItem="heg-kt-8tm" firstAttribute="leading" secondItem="Gw5-4f-hU0" secondAttribute="leading" constant="10" id="aLY-9n-ZRs"/>
                             <constraint firstItem="Gw5-4f-hU0" firstAttribute="bottom" secondItem="Tlk-Si-jnl" secondAttribute="bottom" constant="110" id="ekv-wW-QtX"/>
                             <constraint firstItem="heg-kt-8tm" firstAttribute="top" secondItem="Gw5-4f-hU0" secondAttribute="top" constant="190" id="gxD-ua-8fY"/>
+                            <constraint firstItem="XZz-i8-sTf" firstAttribute="leading" secondItem="Gw5-4f-hU0" secondAttribute="leading" constant="313" id="pqd-EE-PSh"/>
                             <constraint firstItem="Gw5-4f-hU0" firstAttribute="trailing" secondItem="heg-kt-8tm" secondAttribute="trailing" constant="10" id="vHQ-jV-isb"/>
                         </constraints>
                     </view>
@@ -140,13 +153,13 @@
                                 <rect key="frame" x="10" y="50" width="373" height="36"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ooe-Rn-ePH">
-                                        <rect key="frame" x="0.0" y="0.0" width="268" height="36"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="81.333333333333329" height="36"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="0 points" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oLA-ch-MX7">
-                                        <rect key="frame" x="268" y="0.0" width="105" height="36"/>
+                                        <rect key="frame" x="81.333333333333343" y="0.0" width="291.66666666666663" height="36"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
