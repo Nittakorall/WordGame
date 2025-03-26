@@ -136,6 +136,9 @@
                             <constraint firstItem="Gw5-4f-hU0" firstAttribute="trailing" secondItem="heg-kt-8tm" secondAttribute="trailing" constant="10" id="vHQ-jV-isb"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <segue destination="5eq-gS-wbV" kind="show" identifier="startCustom" id="X56-Me-pkK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tfu-8X-gnc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -153,13 +156,13 @@
                                 <rect key="frame" x="10" y="50" width="373" height="36"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ooe-Rn-ePH">
-                                        <rect key="frame" x="0.0" y="0.0" width="81.333333333333329" height="36"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="268" height="36"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="0 points" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oLA-ch-MX7">
-                                        <rect key="frame" x="81.333333333333343" y="0.0" width="291.66666666666663" height="36"/>
+                                        <rect key="frame" x="268" y="0.0" width="105" height="36"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -305,6 +308,9 @@
             <point key="canvasLocation" x="1777.8625954198474" y="-356.33802816901408"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="X56-Me-pkK"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
