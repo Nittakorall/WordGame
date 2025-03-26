@@ -9,14 +9,7 @@ import UIKit
 
 class GameViewController: UIViewController {
     
-//    var wordPairs: [WordPair] = [
-//        WordPair(english: "cat", swedish: "katt"),
-//        WordPair(english: "dog", swedish: "hund"),
-//        WordPair(english: "bird", swedish: "fågel"),
-//        WordPair(english: "worm", swedish: "mask"),
-//        WordPair(english: "shark", swedish: "haj"),
-//        WordPair(english: "goat", swedish: "get")
-//    ]
+
     var wordPairs: [WordPair] = []
     
     var usedIndexes: [Int] = []
@@ -43,6 +36,10 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //get's our default list of pairs from AppDelegate
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+                   wordPairs = appDelegate.globalWordPairs
+               }
         
         // Registers an observer for the notification "timerDidReachZero", which is posted when remainingTime is 0. When notification is posted, this calls upon the function timerDidReachZero.
         NotificationCenter.default.addObserver(self, selector: #selector(timerDidReachZero), name: .timerDidReachZero, object: nil)

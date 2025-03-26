@@ -10,7 +10,21 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    var window: UIWindow?
+        var globalWordPairs: [WordPair] = []
+        
+        func applicationDidFinishLaunching(_ application: UIApplication) {
+          
+            globalWordPairs = [
+                WordPair(english: "cat", swedish: "katt"),
+                WordPair(english: "dog", swedish: "hund"),
+                WordPair(english: "bird", swedish: "fågel"),
+                WordPair(english: "worm", swedish: "mask"),
+                WordPair(english: "shark", swedish: "haj"),
+                WordPair(english: "goat", swedish: "get")
+            ]
+        }
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -32,5 +46,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 
-}
+
 
