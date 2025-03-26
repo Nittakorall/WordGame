@@ -9,6 +9,7 @@ import UIKit
 
 class GameViewController: UIViewController {
     
+
     var wordPairs: [WordPair] = []
     
     var usedIndexes: [Int] = []
