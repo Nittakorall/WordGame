@@ -9,14 +9,15 @@ import UIKit
 
 class GameViewController: UIViewController {
     
-    var wordPairs: [WordPair] = [
-        WordPair(english: "cat", swedish: "katt"),
-        WordPair(english: "dog", swedish: "hund"),
-        WordPair(english: "bird", swedish: "fågel"),
-        WordPair(english: "worm", swedish: "mask"),
-        WordPair(english: "shark", swedish: "haj"),
-        WordPair(english: "goat", swedish: "get")
-    ]
+//    var wordPairs: [WordPair] = [
+//        WordPair(english: "cat", swedish: "katt"),
+//        WordPair(english: "dog", swedish: "hund"),
+//        WordPair(english: "bird", swedish: "fågel"),
+//        WordPair(english: "worm", swedish: "mask"),
+//        WordPair(english: "shark", swedish: "haj"),
+//        WordPair(english: "goat", swedish: "get")
+//    ]
+    var wordPairs: [WordPair] = []
     
     var usedIndexes: [Int] = []
     var score = 0
