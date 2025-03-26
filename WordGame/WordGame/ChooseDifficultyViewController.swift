@@ -22,6 +22,11 @@ class ChooseDifficultyViewController: UIViewController, UIPickerViewDataSource, 
     }
     
     
+    @IBAction func btnDisplayInfo(_ sender: UIButton) {
+        displayDifficultyAlert()
+    }
+    
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -58,15 +63,24 @@ class ChooseDifficultyViewController: UIViewController, UIPickerViewDataSource, 
            if let destinationVC = segue.destination as? GameViewController {
                if chosenDifficulty == 1 {
                    destinationVC.wordPairs = easyList
+                   destinationVC.remainingTime = 16
                } else if chosenDifficulty == 2 {
                    destinationVC.wordPairs = mediumList
+                   destinationVC.remainingTime = 11
                } else if chosenDifficulty == 3 {
                    destinationVC.wordPairs = hardList
+                   destinationVC.remainingTime = 11
                } else {
                    return
                }
            }
        }
+    }
+    
+    func displayDifficultyAlert() {
+        let alert = UIAlertController(title: "Difficulty Levels", message: "\nEasy\nSimple words for animals. 10 words and time limit for each word is 15 seconds.\n\nMedium\nMore complex words used in everyday life. 10 words and the time limit for each word is 10 seconds.\n\nHard\nVery comlex words used in a more academic setting. 10 words and the time limit for each word is 10 seconds.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
     }
     
 
