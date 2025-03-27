@@ -9,6 +9,7 @@ import UIKit
 
 class EndGameViewController: UIViewController {
     
+    let highScoreManager = HighScoreManager()
     var finalScore : Int?
     var finalTime : Int?
     
@@ -27,8 +28,8 @@ class EndGameViewController: UIViewController {
         
         labelFinalScore.text = "Your score: \(finalScore ?? 0) points."
         labelFinalTime.text = "Your time: \(timeString)"
-
-        // Do any additional setup after loading the view.
+        
+        highScoreManager.addHighScore(score: finalScore ?? 0, time: finalTime ?? 0)
     }
     
     func formatTime(seconds : Int) -> String {
