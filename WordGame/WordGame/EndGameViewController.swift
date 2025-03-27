@@ -27,8 +27,10 @@ class EndGameViewController: UIViewController {
         
         labelFinalScore.text = "Your score: \(finalScore ?? 0) points."
         labelFinalTime.text = "Your time: \(timeString)"
+        
+        // Spara high score när skärmen visas
+        saveHighScore(newScore: finalScore ?? 0)
 
-        // Do any additional setup after loading the view.
     }
     
     func formatTime(seconds : Int) -> String {
@@ -37,6 +39,21 @@ class EndGameViewController: UIViewController {
         return String(format: "%02d:%02d", minutes, seconds)
     }
     
+    
+    func saveHighScore(newScore: Int) {
+        var scores = UserDefaults.standard.array(forKey: "HighScores") as? [Int] ?? []
+        scores.append(newScore)
+        scores = scores.sorted(by: >).prefix(5).map { $0 } // Spara bara top 5
+        UserDefaults.standard.set(scores, forKey: "HighScores")
+    }
+
+    
+    @IBAction func showHighScores(_ sender: UIButton) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let highScoreVC = storyboard.instantiateViewController(withIdentifier: "HighScoreViewController") as? HighScoreViewController {
+            self.present(highScoreVC, animated: true, completion: nil)
+        }
+    }
  
 
 }
