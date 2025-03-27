@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -18,28 +17,27 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="CE5-FM-ivV">
-                                <rect key="frame" x="100" y="377.66666666666669" width="193" height="96.666666666666686"/>
+                                <rect key="frame" x="100" y="409" width="193" height="34.333333333333314"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UTb-Hr-pt6">
-                                        <rect key="frame" x="0.0" y="0.0" width="193" height="38.333333333333336"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="193" height="34.333333333333336"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Start Game"/>
                                         <connections>
                                             <segue destination="xX7-We-UAg" kind="presentation" id="vHy-co-hKV"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fSf-qV-71h">
-                                        <rect key="frame" x="0.0" y="58.333333333333314" width="193" height="38.333333333333343"/>
-                                        <accessibility key="accessibilityConfiguration" identifier="showHighScore"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="High Score"/>
-                                        <connections>
-                                            <action selector="highScoreButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="295-YP-AQq"/>
-                                            <segue destination="TRY-Uq-pKw" kind="show" id="IcL-pq-o9w"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cdS-Un-xpD">
+                                <rect key="frame" x="143" y="498" width="108" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="High Score"/>
+                                <connections>
+                                    <segue destination="7Vj-ZR-0f2" kind="show" id="FfG-JW-jP6"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -59,20 +57,20 @@
             <objects>
                 <viewController storyboardIdentifier="GameViewController" id="xX7-We-UAg" customClass="GameViewController" customModule="WordGame" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YZ7-IN-Mnh">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="firstBaseline" translatesAutoresizingMaskIntoConstraints="NO" id="5q3-gy-PV2">
-                                <rect key="frame" x="10" y="50" width="373" height="36"/>
+                                <rect key="frame" x="10" y="109" width="373" height="36"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ooe-Rn-ePH">
-                                        <rect key="frame" x="0.0" y="0.0" width="81.333333333333329" height="36"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="268" height="36"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="0 points" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oLA-ch-MX7">
-                                        <rect key="frame" x="81.333333333333343" y="0.0" width="291.66666666666663" height="36"/>
+                                        <rect key="frame" x="268" y="0.0" width="105" height="36"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -80,7 +78,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="uMb-8s-eTh">
-                                <rect key="frame" x="10" y="370" width="373" height="102.33333333333331"/>
+                                <rect key="frame" x="10" y="340.33333333333331" width="373" height="102.33333333333331"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Word to translate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dkT-Ya-UHf">
                                         <rect key="frame" x="33.666666666666657" y="0.0" width="306" height="34"/>
@@ -104,7 +102,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yhR-Iv-Whp">
-                                <rect key="frame" x="131" y="740.66666666666663" width="132" height="38.333333333333371"/>
+                                <rect key="frame" x="131" y="685.66666666666663" width="132" height="34.333333333333371"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Check answer"/>
                                 <connections>
@@ -144,11 +142,11 @@
             <objects>
                 <viewController id="O4S-Mt-zkl" customClass="EndGameViewController" customModule="WordGame" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IGj-hk-aby">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="nli-gf-QzR">
-                                <rect key="frame" x="10" y="167" width="373" height="87"/>
+                                <rect key="frame" x="10" y="226" width="373" height="87"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your score: -00 points." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="itE-8J-Q9H">
                                         <rect key="frame" x="23" y="0.0" width="327" height="36"/>
@@ -173,7 +171,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="r1I-HJ-AEx">
-                                <rect key="frame" x="100" y="666" width="193" height="106"/>
+                                <rect key="frame" x="100" y="607" width="193" height="106"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s19-kB-NJC">
                                         <rect key="frame" x="36" y="0.0" width="121" height="43"/>
@@ -217,47 +215,41 @@
             </objects>
             <point key="canvasLocation" x="1777.8625954198474" y="-356.33802816901408"/>
         </scene>
-        <!--High Score View Controller-->
-        <scene sceneID="sVq-Eq-ATH">
+        <!--Highscore View Controller-->
+        <scene sceneID="Nht-bR-Lni">
             <objects>
-                <viewController storyboardIdentifier="HighScoreViewController" id="TRY-Uq-pKw" customClass="HighScoreViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="xZI-if-lTI">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                <viewController title="Highscore View Controller" id="7Vj-ZR-0f2" customClass="HighScoreViewController1" customModule="WordGame" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XBU-Oa-uC7">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="sWl-jc-PF1">
-                                <rect key="frame" x="0.0" y="25" width="393" height="759"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ZoA-f7-aX9">
+                                <rect key="frame" x="0.0" y="312" width="393" height="471"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ScoreCell" id="zOL-Jb-1VA">
-                                        <rect key="frame" x="0.0" y="50" width="393" height="47.666667938232422"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="9w1-9Q-ADP">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zOL-Jb-1VA" id="ctp-FB-3Ig">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="47.666667938232422"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9w1-9Q-ADP" id="2FS-gl-TBX">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
-                                        <accessibility key="accessibilityConfiguration" identifier="ScoreCell"/>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="Fs9-Cb-IsE"/>
+                        <viewLayoutGuide key="safeArea" id="GzL-hd-bwK"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="sWl-jc-PF1" firstAttribute="leading" secondItem="Fs9-Cb-IsE" secondAttribute="leading" id="7qC-V6-TwD"/>
-                            <constraint firstItem="Fs9-Cb-IsE" firstAttribute="trailing" secondItem="sWl-jc-PF1" secondAttribute="trailing" id="V7g-3i-0we"/>
-                            <constraint firstItem="Fs9-Cb-IsE" firstAttribute="bottom" secondItem="sWl-jc-PF1" secondAttribute="bottom" id="vJ3-8m-3ME"/>
-                            <constraint firstItem="sWl-jc-PF1" firstAttribute="top" secondItem="Fs9-Cb-IsE" secondAttribute="top" id="vo5-7x-7xe"/>
-                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="r81-vb-0so"/>
+                    <navigationItem key="navigationItem" id="wha-W3-6pn"/>
                     <connections>
-                        <outlet property="tableView" destination="sWl-jc-PF1" id="y4J-Qj-G8c"/>
+                        <outlet property="highScoretableView" destination="ZoA-f7-aX9" id="V8E-WR-kdx"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="E2p-V0-Rkz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xz7-IO-IVb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="917" y="712"/>
+            <point key="canvasLocation" x="-200.76335877862596" y="735.91549295774655"/>
         </scene>
     </scenes>
     <resources>
