@@ -9,8 +9,10 @@ import UIKit
 
 class GameViewController: UIViewController {
     
+    //list that gets lists from other VC with word pairs
     var wordPairs: [WordPair] = []
     
+    //stores index of words from wordPair to avoit repeating same words during the game
     var usedIndexes: [Int] = []
     var score = 0
     
@@ -59,11 +61,13 @@ class GameViewController: UIViewController {
             // Had to put this in an else-block for the segue to be performed, otherwise the loop kept going and stopped the performSegue.
         } else {
             var randomIndex: Int
+            //loop that checks that the wordpair doesn't repeat
             repeat {
                 randomIndex = Int.random(in: 0..<wordPairs.count)
             } while usedIndexes.contains(randomIndex)
+           //if not, adds it to the list
             usedIndexes.append(randomIndex)
-            
+            //and show the wordpair on the screen
             let selectedWordPair = wordPairs[randomIndex]
             labelWord.text = selectedWordPair.swedish
         }
@@ -88,7 +92,7 @@ class GameViewController: UIViewController {
             print("Current word: \(currentWord.english)")
             if userTranslation.lowercased() == currentWord.english.lowercased() {
                 score = score + 1
-                print("Correct! Current score: \(score)")
+                print("Correct!")
                 textFieldTranslation.backgroundColor = UIColor(red: 0.0, green: 0.902, blue: 0.541, alpha: 1.0)
             } else {
                 score = score - 1
