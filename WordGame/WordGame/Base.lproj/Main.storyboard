@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -13,7 +14,7 @@
             <objects>
                 <viewController id="5eq-gS-wbV" customClass="WordsViewController" customModule="WordGame" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Uoe-FU-8lb">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="English" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gol-iY-qgg">
@@ -131,24 +132,24 @@
             <objects>
                 <viewController id="nFN-8J-Ict" customClass="ChooseDifficultyViewController" customModule="WordGame" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Qk0-Zv-lT3">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rRp-lc-44l">
-                                <rect key="frame" x="36.666666666666657" y="283.66666666666669" width="320" height="216"/>
+                                <rect key="frame" x="36.666666666666657" y="313" width="320" height="216"/>
                                 <connections>
                                     <outlet property="dataSource" destination="nFN-8J-Ict" id="0Tz-qz-Y1v"/>
                                     <outlet property="delegate" destination="nFN-8J-Ict" id="hcp-nb-oFl"/>
                                 </connections>
                             </pickerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose a difficulty:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="heg-kt-8tm">
-                                <rect key="frame" x="10" y="249" width="373" height="48"/>
+                                <rect key="frame" x="10" y="190" width="373" height="48"/>
                                 <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="31"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tlk-Si-jnl">
-                                <rect key="frame" x="142" y="567" width="109" height="106"/>
+                                <rect key="frame" x="142" y="626" width="109" height="106"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="109" id="TzI-9F-7ux"/>
                                     <constraint firstAttribute="height" constant="106" id="Z2v-7F-xuD"/>
@@ -163,7 +164,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XZz-i8-sTf">
-                                <rect key="frame" x="313" y="79" width="53" height="35"/>
+                                <rect key="frame" x="313" y="20" width="53" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Info">
                                     <color key="baseBackgroundColor" systemColor="systemTealColor"/>
@@ -201,11 +202,11 @@
             <objects>
                 <viewController storyboardIdentifier="GameViewController" id="xX7-We-UAg" customClass="GameViewController" customModule="WordGame" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YZ7-IN-Mnh">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="firstBaseline" translatesAutoresizingMaskIntoConstraints="NO" id="5q3-gy-PV2">
-                                <rect key="frame" x="10" y="109" width="373" height="36"/>
+                                <rect key="frame" x="10" y="50" width="373" height="36"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ooe-Rn-ePH">
                                         <rect key="frame" x="0.0" y="0.0" width="268" height="36"/>
@@ -222,7 +223,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="uMb-8s-eTh">
-                                <rect key="frame" x="10" y="340.33333333333331" width="373" height="102.33333333333331"/>
+                                <rect key="frame" x="10" y="370" width="373" height="102.33333333333331"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Word to translate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dkT-Ya-UHf">
                                         <rect key="frame" x="33.666666666666657" y="0.0" width="306" height="34"/>
@@ -246,7 +247,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yhR-Iv-Whp">
-                                <rect key="frame" x="131" y="685.66666666666663" width="132" height="34.333333333333371"/>
+                                <rect key="frame" x="131" y="744.66666666666663" width="132" height="34.333333333333371"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Check answer"/>
                                 <connections>
@@ -286,11 +287,11 @@
             <objects>
                 <viewController id="O4S-Mt-zkl" customClass="EndGameViewController" customModule="WordGame" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IGj-hk-aby">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="nli-gf-QzR">
-                                <rect key="frame" x="10" y="226" width="373" height="87"/>
+                                <rect key="frame" x="10" y="167" width="373" height="87"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your score: -00 points." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="itE-8J-Q9H">
                                         <rect key="frame" x="23" y="0.0" width="327" height="36"/>
@@ -315,7 +316,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="r1I-HJ-AEx">
-                                <rect key="frame" x="100" y="607" width="193" height="106"/>
+                                <rect key="frame" x="100" y="666" width="193" height="106"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s19-kB-NJC">
                                         <rect key="frame" x="36" y="0.0" width="121" height="43"/>
@@ -325,6 +326,10 @@
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Play Again"/>
+                                        <connections>
+                                            <action selector="btnPlayAgain:" destination="O4S-Mt-zkl" eventType="touchUpInside" id="YjW-cz-VMZ"/>
+                                            <segue destination="a3r-Te-iwE" kind="unwind" unwindAction="unwindToGameViewController:" id="dXZ-a9-nqp"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rHa-eE-MK9">
                                         <rect key="frame" x="36" y="63" width="121" height="43"/>
@@ -356,13 +361,14 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3JC-uJ-iAq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="a3r-Te-iwE" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1777.8625954198474" y="-356.33802816901408"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="W2U-FZ-Xam"/>
-        <segue reference="X56-Me-pkK"/>
+        <segue reference="PqH-C6-pC2"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
