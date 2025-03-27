@@ -12,21 +12,40 @@ class HighScoreViewController: UIViewController {
     
     @IBOutlet weak var highScoreTableView: UITableView!
     
+    let highScoreManager = HighScoreManager()
+    var scores: [(score: Int, time: Int)] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        
-        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       return 1 //change to the length och the highscorelist when it's created
-            
-            }
-
-            
-            func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-                let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-            
-            
-                return cell
-            }
+        scores = highScoreManager.getHighScores()
+        highScoreTableView.reloadData()
+    }
+    
+    func formatTime(seconds : Int) -> String {
+        let minutes = seconds / 60
+        let seconds = seconds % 60
+        return String(format: "%02d:%02d", minutes, seconds)
     }
 }
+
+extension HighScoreViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return scores.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "highScoreCell", for: indexPath)
+        let score = scores[indexPath.row]
+        let formattedTime = formatTime(seconds: score.time)
+        cell.textLabel?.text = "Score: \(score.score). Time: \(formattedTime)"
+        
+        return cell
+    }
+    
+}
+
