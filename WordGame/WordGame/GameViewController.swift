@@ -14,6 +14,8 @@ class GameViewController: UIViewController {
     var usedIndexes: [Int] = []
     var score = 0
     
+    var difficulty: Int = 0
+    
     // When remainingTime reaches 0, a notification is posted to NotificationCenter to notify observer that this has happened.
     var remainingTime: Int = 5{
         didSet {
@@ -73,7 +75,11 @@ class GameViewController: UIViewController {
         updateScore()
         textFieldTranslation.text = ""
         showRandomSwedishWord()
-        remainingTime = 5
+        if difficulty == 1 {
+            remainingTime = 16
+        } else {
+            remainingTime = 11
+        }
         startWordTimer()
     }
     
@@ -131,7 +137,11 @@ class GameViewController: UIViewController {
         updateScore()
         textFieldTranslation.text = ""
         showRandomSwedishWord()
-        remainingTime = 5
+        if difficulty == 1 {
+            remainingTime = 16
+        } else {
+            remainingTime = 11
+        }
         startWordTimer()
     }
     
@@ -168,7 +178,11 @@ class GameViewController: UIViewController {
         usedIndexes.removeAll()
         score = 0
         totalTime = 0
-        remainingTime = 5
+        if difficulty == 1 {
+            remainingTime = 16
+        } else {
+            remainingTime = 11
+        }
         isEndGamePresented = false
         
         // resets the UI

@@ -74,12 +74,15 @@ class ChooseDifficultyViewController: UIViewController, UIPickerViewDataSource, 
                if chosenDifficulty == 1 {
                    destinationVC.wordPairs = easyList
                    destinationVC.remainingTime = 16
+                   destinationVC.difficulty = chosenDifficulty
                } else if chosenDifficulty == 2 {
                    destinationVC.wordPairs = mediumList
                    destinationVC.remainingTime = 11
+                   destinationVC.difficulty = chosenDifficulty
                } else if chosenDifficulty == 3 {
                    destinationVC.wordPairs = hardList
                    destinationVC.remainingTime = 11
+                   destinationVC.difficulty = chosenDifficulty
                } else {
                    return
                }
