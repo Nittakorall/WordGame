@@ -6,7 +6,7 @@
 //
 
 import Foundation
-class WordPair {
+class WordPair : Codable {
     var english: String
     var swedish: String
     

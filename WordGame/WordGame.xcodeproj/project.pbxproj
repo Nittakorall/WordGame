@@ -8,8 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		103E20882D92FA9600C80A0D /* EndGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103E20872D92FA9600C80A0D /* EndGameViewController.swift */; };
+		103E208A2D93F6E900C80A0D /* WordLists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103E20892D93F6E900C80A0D /* WordLists.swift */; };
+		103E20A82D9402F300C80A0D /* ChooseDifficultyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103E20A72D9402F300C80A0D /* ChooseDifficultyViewController.swift */; };
 		1063B61F2D92AAE100092807 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1063B61E2D92AAE100092807 /* GameViewController.swift */; };
+
 		4E29CED12D95885C0000BBB9 /* HighScoreViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E29CED02D95885C0000BBB9 /* HighScoreViewController1.swift */; };
+
 		4EE638DA2D929E4A001712A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE638D92D929E4A001712A1 /* AppDelegate.swift */; };
 		4EE638DC2D929E4A001712A1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE638DB2D929E4A001712A1 /* SceneDelegate.swift */; };
 		4EE638DE2D929E4A001712A1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE638DD2D929E4A001712A1 /* ViewController.swift */; };
@@ -43,8 +47,12 @@
 
 /* Begin PBXFileReference section */
 		103E20872D92FA9600C80A0D /* EndGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndGameViewController.swift; sourceTree = "<group>"; };
+		103E20892D93F6E900C80A0D /* WordLists.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordLists.swift; sourceTree = "<group>"; };
+		103E20A72D9402F300C80A0D /* ChooseDifficultyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseDifficultyViewController.swift; sourceTree = "<group>"; };
 		1063B61E2D92AAE100092807 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+
 		4E29CED02D95885C0000BBB9 /* HighScoreViewController1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighScoreViewController1.swift; sourceTree = "<group>"; };
+
 		4EE638D62D929E4A001712A1 /* WordGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WordGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EE638D92D929E4A001712A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4EE638DB2D929E4A001712A1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -122,8 +130,15 @@
 				1063B61E2D92AAE100092807 /* GameViewController.swift */,
 				4EE639132D92CFF1001712A1 /* wordPair.swift */,
 				103E20872D92FA9600C80A0D /* EndGameViewController.swift */,
+
 				D7EFA26A2D94BC7A0079ACC2 /* HighScore.swift */,
 				4E29CED02D95885C0000BBB9 /* HighScoreViewController1.swift */,
+
+
+				103E20892D93F6E900C80A0D /* WordLists.swift */,
+				103E20A72D9402F300C80A0D /* ChooseDifficultyViewController.swift */,
+				4E315F302D93F62F003C8463 /* WordsViewController.swift */,
+
 			);
 			path = WordGame;
 			sourceTree = "<group>";
@@ -279,9 +294,15 @@
 				1063B61F2D92AAE100092807 /* GameViewController.swift in Sources */,
 				D72819822D9419860017CD6F /* HighScoreViewController.swift in Sources */,
 				4EE639142D92CFF1001712A1 /* wordPair.swift in Sources */,
+				103E20A82D9402F300C80A0D /* ChooseDifficultyViewController.swift in Sources */,
 				103E20882D92FA9600C80A0D /* EndGameViewController.swift in Sources */,
 				4E29CED12D95885C0000BBB9 /* HighScoreViewController1.swift in Sources */,
 				4EE638DE2D929E4A001712A1 /* ViewController.swift in Sources */,
+
+				103E208A2D93F6E900C80A0D /* WordLists.swift in Sources */,
+
+				4E315F312D93F62F003C8463 /* WordsViewController.swift in Sources */,
+
 				4EE638DA2D929E4A001712A1 /* AppDelegate.swift in Sources */,
 				D7EFA26C2D94C20E0079ACC2 /* HighScore.swift in Sources */,
 				4EE638DC2D929E4A001712A1 /* SceneDelegate.swift in Sources */,

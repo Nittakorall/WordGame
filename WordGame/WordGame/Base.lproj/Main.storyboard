@@ -8,6 +8,75 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Words View Controller-->
+        <scene sceneID="i2T-fs-zc7">
+            <objects>
+                <viewController id="5eq-gS-wbV" customClass="WordsViewController" customModule="WordGame" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Uoe-FU-8lb">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="English" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gol-iY-qgg">
+                                <rect key="frame" x="148" y="40" width="97" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Swedish" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2a6-th-MGc">
+                                <rect key="frame" x="148" y="82" width="97" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kIO-2o-FzL">
+                                <rect key="frame" x="147" y="145" width="100" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Add Word"/>
+                                <connections>
+                                    <action selector="addWordButton:" destination="5eq-gS-wbV" eventType="touchUpInside" id="Atf-qC-WkF"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XJ8-Zg-sNO">
+                                <rect key="frame" x="110" y="188" width="174" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Start Custom Game"/>
+                                <connections>
+                                    <action selector="startCustomGameButton:" destination="5eq-gS-wbV" eventType="touchUpInside" id="COp-yc-xDo"/>
+                                    <segue destination="xX7-We-UAg" kind="show" identifier="showGameScreen" id="W2U-FZ-Xam"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="xlf-3C-Boi">
+                                <rect key="frame" x="0.0" y="258" width="393" height="525"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="fbO-u1-WRG">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fbO-u1-WRG" id="6iu-0D-yQM">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="t3I-bT-SWO"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="cUD-kQ-KcU"/>
+                    <connections>
+                        <outlet property="englishInput" destination="gol-iY-qgg" id="uWF-OQ-FXs"/>
+                        <outlet property="swedishInput" destination="2a6-th-MGc" id="MZd-1w-1fD"/>
+                        <outlet property="tableViewWordLists" destination="xlf-3C-Boi" id="xoN-hW-UOX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Oj-Pl-Ob7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-196.18320610687022" y="358.45070422535213"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -24,11 +93,12 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Start Game"/>
                                         <connections>
-                                            <segue destination="xX7-We-UAg" kind="presentation" id="vHy-co-hKV"/>
+                                            <segue destination="nFN-8J-Ict" kind="presentation" id="rhk-Gw-mhS"/>
                                         </connections>
                                     </button>
                                 </subviews>
                             </stackView>
+
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cdS-Un-xpD">
                                 <rect key="frame" x="143" y="498" width="108" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -36,6 +106,7 @@
                                 <buttonConfiguration key="configuration" style="filled" title="High Score"/>
                                 <connections>
                                     <segue destination="7Vj-ZR-0f2" kind="show" id="FfG-JW-jP6"/>
+
                                 </connections>
                             </button>
                         </subviews>
@@ -50,7 +121,77 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="81.679389312977094" y="-27.464788732394368"/>
+            <point key="canvasLocation" x="-1256" y="-27"/>
+        </scene>
+        <!--Choose Difficulty View Controller-->
+        <scene sceneID="ATw-mS-73b">
+            <objects>
+                <viewController id="nFN-8J-Ict" customClass="ChooseDifficultyViewController" customModule="WordGame" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Qk0-Zv-lT3">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rRp-lc-44l">
+                                <rect key="frame" x="36.666666666666657" y="313" width="320" height="216"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="nFN-8J-Ict" id="0Tz-qz-Y1v"/>
+                                    <outlet property="delegate" destination="nFN-8J-Ict" id="hcp-nb-oFl"/>
+                                </connections>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose a difficulty:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="heg-kt-8tm">
+                                <rect key="frame" x="10" y="190" width="373" height="48"/>
+                                <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="31"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tlk-Si-jnl">
+                                <rect key="frame" x="142" y="626" width="109" height="106"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="109" id="TzI-9F-7ux"/>
+                                    <constraint firstAttribute="height" constant="106" id="Z2v-7F-xuD"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Start Game" cornerStyle="capsule">
+                                    <fontDescription key="titleFontDescription" name="Chalkduster" family="Chalkduster" pointSize="20"/>
+                                    <color key="baseBackgroundColor" systemColor="systemTealColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <segue destination="xX7-We-UAg" kind="presentation" identifier="startGameDifficulty" id="Kel-Hz-xRd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XZz-i8-sTf">
+                                <rect key="frame" x="313" y="20" width="53" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Info">
+                                    <color key="baseBackgroundColor" systemColor="systemTealColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="btnDisplayInfo:" destination="nFN-8J-Ict" eventType="touchUpInside" id="3Mi-qe-bYb"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Gw5-4f-hU0"/>
+                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                        <constraints>
+                            <constraint firstItem="rRp-lc-44l" firstAttribute="centerX" secondItem="Qk0-Zv-lT3" secondAttribute="centerX" id="E96-Lp-oWq"/>
+                            <constraint firstItem="Tlk-Si-jnl" firstAttribute="centerX" secondItem="Qk0-Zv-lT3" secondAttribute="centerX" id="ILP-lW-bej"/>
+                            <constraint firstItem="XZz-i8-sTf" firstAttribute="top" secondItem="Gw5-4f-hU0" secondAttribute="top" constant="20" id="N6n-C6-N7f"/>
+                            <constraint firstItem="Gw5-4f-hU0" firstAttribute="trailing" secondItem="XZz-i8-sTf" secondAttribute="trailing" constant="27" id="SDF-4F-0pD"/>
+                            <constraint firstItem="rRp-lc-44l" firstAttribute="centerY" secondItem="Qk0-Zv-lT3" secondAttribute="centerY" id="WmH-z6-Via"/>
+                            <constraint firstItem="heg-kt-8tm" firstAttribute="leading" secondItem="Gw5-4f-hU0" secondAttribute="leading" constant="10" id="aLY-9n-ZRs"/>
+                            <constraint firstItem="Gw5-4f-hU0" firstAttribute="bottom" secondItem="Tlk-Si-jnl" secondAttribute="bottom" constant="110" id="ekv-wW-QtX"/>
+                            <constraint firstItem="heg-kt-8tm" firstAttribute="top" secondItem="Gw5-4f-hU0" secondAttribute="top" constant="190" id="gxD-ua-8fY"/>
+                            <constraint firstItem="XZz-i8-sTf" firstAttribute="leading" secondItem="Gw5-4f-hU0" secondAttribute="leading" constant="313" id="pqd-EE-PSh"/>
+                            <constraint firstItem="Gw5-4f-hU0" firstAttribute="trailing" secondItem="heg-kt-8tm" secondAttribute="trailing" constant="10" id="vHQ-jV-isb"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <segue destination="5eq-gS-wbV" kind="show" identifier="startCustom" id="X56-Me-pkK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tfu-8X-gnc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-196.18320610687022" y="-485.21126760563385"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="e2z-io-maQ">
@@ -181,6 +322,10 @@
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Play Again"/>
+                                        <connections>
+                                            <action selector="btnPlayAgain:" destination="O4S-Mt-zkl" eventType="touchUpInside" id="YjW-cz-VMZ"/>
+                                            <segue destination="a3r-Te-iwE" kind="unwind" unwindAction="unwindToGameViewController:" id="dXZ-a9-nqp"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rHa-eE-MK9">
                                         <rect key="frame" x="36" y="63" width="121" height="43"/>
@@ -190,6 +335,10 @@
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Start Page"/>
+                                        <connections>
+                                            <action selector="btnBackToMain:" destination="O4S-Mt-zkl" eventType="touchUpInside" id="RPy-eb-lGc"/>
+                                            <segue destination="a3r-Te-iwE" kind="unwind" unwindAction="unwindToViewController:" id="JZP-Cj-al5"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -212,6 +361,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3JC-uJ-iAq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="a3r-Te-iwE" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1777.8625954198474" y="-356.33802816901408"/>
         </scene>
@@ -252,9 +402,19 @@
             <point key="canvasLocation" x="-200.76335877862596" y="735.91549295774655"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="W2U-FZ-Xam"/>
+        <segue reference="PqH-C6-pC2"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

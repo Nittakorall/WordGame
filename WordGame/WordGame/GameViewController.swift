@@ -9,17 +9,12 @@ import UIKit
 
 class GameViewController: UIViewController {
     
-    var wordPairs: [WordPair] = [
-        WordPair(english: "cat", swedish: "katt"),
-        WordPair(english: "dog", swedish: "hund"),
-        WordPair(english: "bird", swedish: "fågel"),
-        WordPair(english: "worm", swedish: "mask"),
-        WordPair(english: "shark", swedish: "haj"),
-        WordPair(english: "goat", swedish: "get")
-    ]
+    var wordPairs: [WordPair] = []
     
     var usedIndexes: [Int] = []
     var score = 0
+    
+    var difficulty: Int = 0
     
     // When remainingTime reaches 0, a notification is posted to NotificationCenter to notify observer that this has happened.
     var remainingTime: Int = 5{
@@ -42,6 +37,10 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //get's our default list of pairs from AppDelegate
+        //        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+        //           wordPairs = appDelegate.globalWordPairs
+        //       }
         
         // Registers an observer for the notification "timerDidReachZero", which is posted when remainingTime is 0. When notification is posted, this calls upon the function timerDidReachZero.
         NotificationCenter.default.addObserver(self, selector: #selector(timerDidReachZero), name: .timerDidReachZero, object: nil)
@@ -54,7 +53,7 @@ class GameViewController: UIViewController {
     
     func showRandomSwedishWord() {
         if usedIndexes.count == wordPairs.count && !isEndGamePresented {
-//            usedIndexes.removeAll() //if we want it to loop
+            //            usedIndexes.removeAll() //if we want it to loop
             isEndGamePresented = true
             performSegue(withIdentifier: "showEndGameViewController", sender: self)
             // Had to put this in an else-block for the segue to be performed, otherwise the loop kept going and stopped the performSegue.
@@ -74,10 +73,6 @@ class GameViewController: UIViewController {
         wordTimer?.invalidate()
         checkTranslation()
         updateScore()
-        textFieldTranslation.text = ""
-        showRandomSwedishWord()
-        remainingTime = 5
-        startWordTimer()
     }
     
     func updateScore() {
@@ -85,15 +80,34 @@ class GameViewController: UIViewController {
     }
     
     func checkTranslation() {
-        if let userTranslation = textFieldTranslation.text, !userTranslation.isEmpty {
+        
+        if let userTranslation = textFieldTranslation.text {
             let currentWord = wordPairs[usedIndexes.last!]
-                if userTranslation.lowercased() == currentWord.english.lowercased() {
-                   score = score + 1
-                   print("Correct! Current score: \(score)")
-               } else {
-                   score = score - 1
-                   print("Incorrect.")
-               }
+
+            print("Translation: \(userTranslation)")
+            print("Current word: \(currentWord.english)")
+            if userTranslation.lowercased() == currentWord.english.lowercased() {
+                score = score + 1
+                print("Correct! Current score: \(score)")
+                textFieldTranslation.backgroundColor = UIColor(red: 0.0, green: 0.902, blue: 0.541, alpha: 1.0)
+            } else {
+                score = score - 1
+                print("Incorrect.")
+                textFieldTranslation.backgroundColor = UIColor(red: 0.8, green: 0, blue: 0, alpha: 1.0)
+            }
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            self.textFieldTranslation.backgroundColor = UIColor.white
+            self.textFieldTranslation.text = ""
+            self.showRandomSwedishWord()
+            if self.difficulty == 1 {
+                self.remainingTime = 16
+            } else {
+                self.remainingTime = 11
+            }
+            self.startWordTimer()
+
         }
     }
     
@@ -132,10 +146,19 @@ class GameViewController: UIViewController {
         wordTimer?.invalidate()
         score += -1
         updateScore()
-        textFieldTranslation.text = ""
-        showRandomSwedishWord()
-        remainingTime = 5
-        startWordTimer()
+        textFieldTranslation.backgroundColor = UIColor(red: 0.8, green: 0, blue: 0, alpha: 1.0)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            self.textFieldTranslation.backgroundColor = UIColor.white
+            self.textFieldTranslation.text = ""
+            self.showRandomSwedishWord()
+            if self.difficulty == 1 {
+                self.remainingTime = 16
+            } else {
+                self.remainingTime = 11
+            }
+            self.startWordTimer()
+        }
     }
     
     // Removes connection to NotificationCenter when View Controller is deinitialised to prevent memory leaks.
@@ -155,11 +178,42 @@ class GameViewController: UIViewController {
     // Sending score and total game time to EndGameViewController when performSegue runs.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showEndGameViewController" {
-           if let destinationVC = segue.destination as? EndGameViewController {
-               destinationVC.finalScore = score
-               destinationVC.finalTime = totalTime
-           }
-       }
+            if let destinationVC = segue.destination as? EndGameViewController {
+                destinationVC.finalScore = score
+                destinationVC.finalTime = totalTime
+            }
+        }
+    }
+    
+    func resetGame() {
+        // Stops the timers
+        wordTimer?.invalidate()
+        gameTimer?.invalidate()
+        
+        // Resets the game's variables
+        usedIndexes.removeAll()
+        score = 0
+        totalTime = 0
+        if difficulty == 1 {
+            remainingTime = 16
+        } else {
+            remainingTime = 11
+        }
+        isEndGamePresented = false
+        
+        // resets the UI
+        updateScore()
+        updateWordTimer(label: labelWordTimer, remainingTime: remainingTime)
+        
+        // restarts the timers and display the first words
+        showRandomSwedishWord()
+        startWordTimer()
+        startGameTimer()
+    }
+    
+    // takes the player back to the game screen when pressing 'Play Again'
+    @IBAction func unwindToGameViewController(_ segue: UIStoryboardSegue) {
+        resetGame()
     }
     
 }
