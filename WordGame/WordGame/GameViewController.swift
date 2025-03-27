@@ -185,7 +185,6 @@ class GameViewController: UIViewController {
     @IBAction func unwindToGameViewController(_ segue: UIStoryboardSegue) {
         resetGame()
     }
-
     
 }
 

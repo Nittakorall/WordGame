@@ -14,9 +14,9 @@ class EndGameViewController: UIViewController {
     
     @IBAction func btnPlayAgain(_ sender: UIButton) {
     }
-    
     @IBAction func btnBackToMain(_ sender: UIButton) {
     }
+  
     @IBOutlet weak var labelFinalScore: UILabel!
     @IBOutlet weak var labelFinalTime: UILabel!
     
