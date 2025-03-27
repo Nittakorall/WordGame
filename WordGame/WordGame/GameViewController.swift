@@ -9,7 +9,6 @@ import UIKit
 
 class GameViewController: UIViewController {
     
-
     var wordPairs: [WordPair] = []
     
     var usedIndexes: [Int] = []
@@ -158,6 +157,33 @@ class GameViewController: UIViewController {
                destinationVC.finalTime = totalTime
            }
        }
+    }
+    
+    func resetGame() {
+        // Stops the timers
+        wordTimer?.invalidate()
+        gameTimer?.invalidate()
+        
+        // Resets the game's variables
+        usedIndexes.removeAll()
+        score = 0
+        totalTime = 0
+        remainingTime = 5
+        isEndGamePresented = false
+        
+        // resets the UI
+        updateScore()
+        updateWordTimer(label: labelWordTimer, remainingTime: remainingTime)
+        
+        // restarts the timers and display the first words
+        showRandomSwedishWord()
+        startWordTimer()
+        startGameTimer()
+    }
+    
+    // takes the player back to the game screen when pressing 'Play Again'
+    @IBAction func unwindToGameViewController(_ segue: UIStoryboardSegue) {
+        resetGame()
     }
     
 }
