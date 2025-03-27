@@ -339,6 +339,10 @@
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Start Page"/>
+                                        <connections>
+                                            <action selector="btnBackToMain:" destination="O4S-Mt-zkl" eventType="touchUpInside" id="RPy-eb-lGc"/>
+                                            <segue destination="a3r-Te-iwE" kind="unwind" unwindAction="unwindToViewController:" id="JZP-Cj-al5"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>

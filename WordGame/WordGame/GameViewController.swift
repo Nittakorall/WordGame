@@ -83,6 +83,7 @@ class GameViewController: UIViewController {
         
         if let userTranslation = textFieldTranslation.text {
             let currentWord = wordPairs[usedIndexes.last!]
+
             print("Translation: \(userTranslation)")
             print("Current word: \(currentWord.english)")
             if userTranslation.lowercased() == currentWord.english.lowercased() {
@@ -106,6 +107,7 @@ class GameViewController: UIViewController {
                 self.remainingTime = 11
             }
             self.startWordTimer()
+
         }
     }
     
