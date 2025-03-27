@@ -36,9 +36,9 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //get's our default list of pairs from AppDelegate
-//        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
-//           wordPairs = appDelegate.globalWordPairs
-//       }
+        //        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+        //           wordPairs = appDelegate.globalWordPairs
+        //       }
         
         // Registers an observer for the notification "timerDidReachZero", which is posted when remainingTime is 0. When notification is posted, this calls upon the function timerDidReachZero.
         NotificationCenter.default.addObserver(self, selector: #selector(timerDidReachZero), name: .timerDidReachZero, object: nil)
@@ -51,7 +51,7 @@ class GameViewController: UIViewController {
     
     func showRandomSwedishWord() {
         if usedIndexes.count == wordPairs.count && !isEndGamePresented {
-//            usedIndexes.removeAll() //if we want it to loop
+            //            usedIndexes.removeAll() //if we want it to loop
             isEndGamePresented = true
             performSegue(withIdentifier: "showEndGameViewController", sender: self)
             // Had to put this in an else-block for the segue to be performed, otherwise the loop kept going and stopped the performSegue.
@@ -84,13 +84,13 @@ class GameViewController: UIViewController {
     func checkTranslation() {
         if let userTranslation = textFieldTranslation.text, !userTranslation.isEmpty {
             let currentWord = wordPairs[usedIndexes.last!]
-                if userTranslation.lowercased() == currentWord.english.lowercased() {
-                   score = score + 1
-                   print("Correct! Current score: \(score)")
-               } else {
-                   score = score - 1
-                   print("Incorrect.")
-               }
+            if userTranslation.lowercased() == currentWord.english.lowercased() {
+                score = score + 1
+                print("Correct! Current score: \(score)")
+            } else {
+                score = score - 1
+                print("Incorrect.")
+            }
         }
     }
     
@@ -152,11 +152,11 @@ class GameViewController: UIViewController {
     // Sending score and total game time to EndGameViewController when performSegue runs.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showEndGameViewController" {
-           if let destinationVC = segue.destination as? EndGameViewController {
-               destinationVC.finalScore = score
-               destinationVC.finalTime = totalTime
-           }
-       }
+            if let destinationVC = segue.destination as? EndGameViewController {
+                destinationVC.finalScore = score
+                destinationVC.finalTime = totalTime
+            }
+        }
     }
     
     func resetGame() {
