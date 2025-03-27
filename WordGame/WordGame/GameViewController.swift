@@ -14,6 +14,8 @@ class GameViewController: UIViewController {
     var usedIndexes: [Int] = []
     var score = 0
     
+    var difficulty: Int = 0
+    
     // When remainingTime reaches 0, a notification is posted to NotificationCenter to notify observer that this has happened.
     var remainingTime: Int = 5{
         didSet {
@@ -71,10 +73,6 @@ class GameViewController: UIViewController {
         wordTimer?.invalidate()
         checkTranslation()
         updateScore()
-        textFieldTranslation.text = ""
-        showRandomSwedishWord()
-        remainingTime = 5
-        startWordTimer()
     }
     
     func updateScore() {
@@ -82,15 +80,34 @@ class GameViewController: UIViewController {
     }
     
     func checkTranslation() {
-        if let userTranslation = textFieldTranslation.text, !userTranslation.isEmpty {
+        
+        if let userTranslation = textFieldTranslation.text {
             let currentWord = wordPairs[usedIndexes.last!]
+
+            print("Translation: \(userTranslation)")
+            print("Current word: \(currentWord.english)")
             if userTranslation.lowercased() == currentWord.english.lowercased() {
                 score = score + 1
                 print("Correct! Current score: \(score)")
+                textFieldTranslation.backgroundColor = UIColor(red: 0.0, green: 0.902, blue: 0.541, alpha: 1.0)
             } else {
                 score = score - 1
                 print("Incorrect.")
+                textFieldTranslation.backgroundColor = UIColor(red: 0.8, green: 0, blue: 0, alpha: 1.0)
             }
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            self.textFieldTranslation.backgroundColor = UIColor.white
+            self.textFieldTranslation.text = ""
+            self.showRandomSwedishWord()
+            if self.difficulty == 1 {
+                self.remainingTime = 16
+            } else {
+                self.remainingTime = 11
+            }
+            self.startWordTimer()
+
         }
     }
     
@@ -129,10 +146,19 @@ class GameViewController: UIViewController {
         wordTimer?.invalidate()
         score += -1
         updateScore()
-        textFieldTranslation.text = ""
-        showRandomSwedishWord()
-        remainingTime = 5
-        startWordTimer()
+        textFieldTranslation.backgroundColor = UIColor(red: 0.8, green: 0, blue: 0, alpha: 1.0)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            self.textFieldTranslation.backgroundColor = UIColor.white
+            self.textFieldTranslation.text = ""
+            self.showRandomSwedishWord()
+            if self.difficulty == 1 {
+                self.remainingTime = 16
+            } else {
+                self.remainingTime = 11
+            }
+            self.startWordTimer()
+        }
     }
     
     // Removes connection to NotificationCenter when View Controller is deinitialised to prevent memory leaks.
@@ -168,7 +194,11 @@ class GameViewController: UIViewController {
         usedIndexes.removeAll()
         score = 0
         totalTime = 0
-        remainingTime = 5
+        if difficulty == 1 {
+            remainingTime = 16
+        } else {
+            remainingTime = 11
+        }
         isEndGamePresented = false
         
         // resets the UI
