@@ -38,8 +38,8 @@ class WordsViewController: UIViewController, UITableViewDataSource {
     @IBOutlet weak var englishInput: UITextField!
     
     @IBAction func startCustomGameButton(_ sender: Any) {
-        performSegue(withIdentifier: "showGameScreen", sender: self)
-    }
+            performSegue(withIdentifier: "showGameScreen", sender: self)}
+    
  
     
 
@@ -74,10 +74,23 @@ class WordsViewController: UIViewController, UITableViewDataSource {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showGameScreen" {
             if let gameViewController = segue.destination as? GameViewController {
-                
-                gameViewController.wordPairs = newList
+                    gameViewController.wordPairs = newList
             }
         }
+    }
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if identifier == "showGameScreen" {
+            if newList.isEmpty {
+                print("EMPTY")
+                let alert = UIAlertController(title: "Error", message: "Your list is empty!", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                present(alert, animated: true, completion: nil)
+                
+               
+                return false
+            }
+        }
+        return true 
     }
 }
 
