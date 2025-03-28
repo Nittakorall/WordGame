@@ -67,18 +67,24 @@ class GameViewController: UIViewController {
             // Had to put this in an else-block for the segue to be performed, otherwise the loop kept going and stopped the performSegue.
         } else {
             var randomIndex: Int
-            //loop that checks that the wordpair doesn't repeat
-            repeat {
+            
+            for _ in 0..<wordPairs.count {
                 randomIndex = Int.random(in: 0..<wordPairs.count)
-            } while usedIndexes.contains(randomIndex)
-           //if not, adds it to the list
-            usedIndexes.append(randomIndex)
-            //and show the wordpair on the screen
-            let selectedWordPair = wordPairs[randomIndex]
-            labelWord.text = selectedWordPair.swedish
+                if !usedIndexes.contains(randomIndex) {
+                    //move wordpair index to the used ones
+                    usedIndexes.append(randomIndex)
+                    // show word pair
+                    let selectedWordPair = wordPairs[randomIndex]
+                    labelWord.text = selectedWordPair.swedish
+                    // end for loop when the unused index is found
+                    break
+                
+                }
+            }
+            
         }
+        
     }
-    
     @IBAction func btnCheckAnswer(_ sender: UIButton) {
         wordTimer?.invalidate()
         checkTranslation()
@@ -94,7 +100,7 @@ class GameViewController: UIViewController {
         
         if let userTranslation = textFieldTranslation.text {
             let currentWord = wordPairs[usedIndexes.last!]
-
+            
             print("Translation: \(userTranslation)")
             print("Current word: \(currentWord.english)")
             if userTranslation.lowercased() == currentWord.english.lowercased() {
@@ -119,7 +125,7 @@ class GameViewController: UIViewController {
             }
             self.startWordTimer()
             self.btnCheckAnswerOutlet.isEnabled = true
-
+            
         }
     }
     
