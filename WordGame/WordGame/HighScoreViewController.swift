@@ -18,6 +18,7 @@ class HighScoreViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         scores = highScoreManager.getHighScores()
+        highScoreTableView.backgroundColor = .clear
         highScoreTableView.reloadData()
     }
     
@@ -43,6 +44,9 @@ extension HighScoreViewController: UITableViewDataSource, UITableViewDelegate {
         let score = scores[indexPath.row]
         let formattedTime = formatTime(seconds: score.time)
         cell.textLabel?.text = "Score: \(score.score). Time: \(formattedTime)"
+        cell.backgroundColor = .clear
+        cell.textLabel?.textAlignment = .center
+        cell.textLabel?.font = UIFont(name: "Papyrus", size: 25)
         
         return cell
     }

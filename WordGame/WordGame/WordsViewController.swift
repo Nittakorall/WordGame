@@ -47,9 +47,8 @@ class WordsViewController: UIViewController, UITableViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
         tableViewWordLists.dataSource = self
+        tableViewWordLists.backgroundColor = .clear
     }
     
     
@@ -65,6 +64,9 @@ class WordsViewController: UIViewController, UITableViewDataSource {
         let item = newList[indexPath.row]
         
         cell.textLabel?.text = "\(item.english) - \(item.swedish)"
+        cell.backgroundColor = .clear
+        cell.textLabel?.textAlignment = .center
+        cell.textLabel?.font = UIFont(name: "Papyrus", size: 20)
         
         return cell
     }
