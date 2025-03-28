@@ -36,6 +36,7 @@ class GameViewController: UIViewController {
     @IBOutlet weak var labelPoints: UILabel!
     @IBOutlet weak var labelWord: UILabel!
     @IBOutlet weak var textFieldTranslation: UITextField!
+    @IBOutlet weak var btnCheckAnswerOutlet: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,10 +59,10 @@ class GameViewController: UIViewController {
             //            usedIndexes.removeAll() //if we want it to loop
             isEndGamePresented = true
             wordTimer?.invalidate()
-                        wordTimer = nil
-                        gameTimer?.invalidate()
-                        gameTimer = nil
-                        NotificationCenter.default.removeObserver(self)
+            wordTimer = nil
+            gameTimer?.invalidate()
+            gameTimer = nil
+            NotificationCenter.default.removeObserver(self)
             performSegue(withIdentifier: "showEndGameViewController", sender: self)
             // Had to put this in an else-block for the segue to be performed, otherwise the loop kept going and stopped the performSegue.
         } else {
@@ -89,6 +90,7 @@ class GameViewController: UIViewController {
     }
     
     func checkTranslation() {
+        btnCheckAnswerOutlet.isEnabled = false
         
         if let userTranslation = textFieldTranslation.text {
             let currentWord = wordPairs[usedIndexes.last!]
@@ -116,6 +118,7 @@ class GameViewController: UIViewController {
                 self.remainingTime = 11
             }
             self.startWordTimer()
+            self.btnCheckAnswerOutlet.isEnabled = true
 
         }
     }
@@ -156,6 +159,7 @@ class GameViewController: UIViewController {
         score += -1
         updateScore()
         textFieldTranslation.backgroundColor = UIColor(red: 0.8, green: 0, blue: 0, alpha: 1.0)
+        btnCheckAnswerOutlet.isEnabled = false
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             self.textFieldTranslation.backgroundColor = UIColor.white
@@ -167,6 +171,7 @@ class GameViewController: UIViewController {
                 self.remainingTime = 11
             }
             self.startWordTimer()
+            self.btnCheckAnswerOutlet.isEnabled = true
         }
     }
     
