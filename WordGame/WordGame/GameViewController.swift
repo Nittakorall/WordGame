@@ -57,6 +57,11 @@ class GameViewController: UIViewController {
         if usedIndexes.count == wordPairs.count && !isEndGamePresented {
             //            usedIndexes.removeAll() //if we want it to loop
             isEndGamePresented = true
+            wordTimer?.invalidate()
+                        wordTimer = nil
+                        gameTimer?.invalidate()
+                        gameTimer = nil
+                        NotificationCenter.default.removeObserver(self)
             performSegue(withIdentifier: "showEndGameViewController", sender: self)
             // Had to put this in an else-block for the segue to be performed, otherwise the loop kept going and stopped the performSegue.
         } else {
