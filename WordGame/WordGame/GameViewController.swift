@@ -112,11 +112,11 @@ class GameViewController: UIViewController {
             if userTranslation.lowercased() == currentWord.english.lowercased() {
                 score = score + 1
                 print("Correct!")
-                textFieldTranslation.backgroundColor = UIColor(red: 0.0, green: 0.902, blue: 0.541, alpha: 1.0)
+                textFieldTranslation.backgroundColor = UIColor(red: 0.058, green: 0.741, blue: 0.568, alpha: 0.7)
             } else {
                 score = score - 1
                 print("Incorrect.")
-                textFieldTranslation.backgroundColor = UIColor(red: 0.8, green: 0, blue: 0, alpha: 1.0)
+                textFieldTranslation.backgroundColor = UIColor(red: 1, green: 0.4, blue: 0.4, alpha: 0.7)
             }
         }
         

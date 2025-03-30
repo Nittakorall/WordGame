@@ -133,6 +133,11 @@ class ChooseDifficultyViewController: UIViewController, UIPickerViewDataSource, 
         btnStartGame.layer.shadowOffset = CGSize(width: 0, height: 5) // Ställ in skuggans position
         btnStartGame.layer.shadowRadius = 5 // Ställ in hur utspridd skuggan ska vara
         btnStartGame.clipsToBounds = false
+        
+//        btnStartGame.titleLabel?.lineBreakMode = .byWordWrapping
+        btnStartGame.titleLabel?.textAlignment = .center
+        
+        
     }
 
 }
