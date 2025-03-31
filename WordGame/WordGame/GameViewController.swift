@@ -37,6 +37,8 @@ class GameViewController: UIViewController {
     @IBOutlet weak var labelWord: UILabel!
     @IBOutlet weak var textFieldTranslation: UITextField!
     @IBOutlet weak var btnCheckAnswerOutlet: UIButton!
+    @IBOutlet weak var labelCorrectTranslation: UILabel!
+    @IBOutlet weak var imageViewBackground: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,6 +50,8 @@ class GameViewController: UIViewController {
         // Registers an observer for the notification "timerDidReachZero", which is posted when remainingTime is 0. When notification is posted, this calls upon the function timerDidReachZero.
         NotificationCenter.default.addObserver(self, selector: #selector(timerDidReachZero), name: .timerDidReachZero, object: nil)
         
+        labelCorrectTranslation.alpha = 0
+        designSetup()
         showRandomSwedishWord()
         updateScore()
         startWordTimer()
@@ -103,14 +107,16 @@ class GameViewController: UIViewController {
             
             print("Translation: \(userTranslation)")
             print("Current word: \(currentWord.english)")
+            labelCorrectTranslation.alpha = 1
+            labelCorrectTranslation.text = currentWord.english
             if userTranslation.lowercased() == currentWord.english.lowercased() {
                 score = score + 1
                 print("Correct!")
-                textFieldTranslation.backgroundColor = UIColor(red: 0.0, green: 0.902, blue: 0.541, alpha: 1.0)
+                textFieldTranslation.backgroundColor = UIColor(red: 0.058, green: 0.741, blue: 0.568, alpha: 0.7)
             } else {
                 score = score - 1
                 print("Incorrect.")
-                textFieldTranslation.backgroundColor = UIColor(red: 0.8, green: 0, blue: 0, alpha: 1.0)
+                textFieldTranslation.backgroundColor = UIColor(red: 1, green: 0.4, blue: 0.4, alpha: 0.7)
             }
         }
         
@@ -125,7 +131,7 @@ class GameViewController: UIViewController {
             }
             self.startWordTimer()
             self.btnCheckAnswerOutlet.isEnabled = true
-            
+            self.labelCorrectTranslation.alpha = 0
         }
     }
     
@@ -164,8 +170,9 @@ class GameViewController: UIViewController {
         wordTimer?.invalidate()
         score += -1
         updateScore()
-        textFieldTranslation.backgroundColor = UIColor(red: 0.8, green: 0, blue: 0, alpha: 1.0)
+        textFieldTranslation.backgroundColor = UIColor(red: 1, green: 0.4, blue: 0.4, alpha: 0.7)
         btnCheckAnswerOutlet.isEnabled = false
+        labelCorrectTranslation.alpha = 1
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             self.textFieldTranslation.backgroundColor = UIColor.white
@@ -178,6 +185,7 @@ class GameViewController: UIViewController {
             }
             self.startWordTimer()
             self.btnCheckAnswerOutlet.isEnabled = true
+            self.labelCorrectTranslation.alpha = 0
         }
     }
     
@@ -234,6 +242,25 @@ class GameViewController: UIViewController {
     // takes the player back to the game screen when pressing 'Play Again'
     @IBAction func unwindToGameViewController(_ segue: UIStoryboardSegue) {
         resetGame()
+    }
+    
+    func designSetup() {
+        imageViewBackground.backgroundColor = .clear
+        imageViewBackground.layer.borderWidth = 4
+        imageViewBackground.layer.borderColor = UIColor.black.cgColor
+        imageViewBackground.layer.cornerRadius = 20 // Ändra 10 till det värde du vill ha för rundningen
+        imageViewBackground.layer.masksToBounds = true
+        
+        btnCheckAnswerOutlet.layer.borderWidth = 1
+        btnCheckAnswerOutlet.layer.borderColor = UIColor.gray.cgColor
+        btnCheckAnswerOutlet.layer.cornerRadius = 7 // Ändra 10 till det värde du vill ha för rundningen
+        btnCheckAnswerOutlet.layer.masksToBounds = true
+        
+        btnCheckAnswerOutlet.layer.shadowColor = UIColor.black.cgColor // Ställ in skuggans färg
+        btnCheckAnswerOutlet.layer.shadowOpacity = 1 // Ställ in skuggans opacitet (0 till 1)
+        btnCheckAnswerOutlet.layer.shadowOffset = CGSize(width: 0, height: 5) // Ställ in skuggans position
+        btnCheckAnswerOutlet.layer.shadowRadius = 5 // Ställ in hur utspridd skuggan ska vara
+        btnCheckAnswerOutlet.clipsToBounds = false
     }
     
 }

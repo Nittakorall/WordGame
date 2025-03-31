@@ -9,6 +9,13 @@ import UIKit
 
 class ChooseDifficultyViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
+    @IBOutlet weak var imageViewBackground: UIImageView!
+    @IBOutlet weak var btnStartGame: UIButton!
+    @IBOutlet weak var btnInfo: UIButton!
+    
+    
+    
+    
     // Default lists for the different difficulty levels. Singletons.
     let easyList = WordLists.shared.easyWordPairList
     let mediumList = WordLists.shared.mediumWordPairList
@@ -22,6 +29,7 @@ class ChooseDifficultyViewController: UIViewController, UIPickerViewDataSource, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        designSetup()
     }
     
     
@@ -97,5 +105,39 @@ class ChooseDifficultyViewController: UIViewController, UIPickerViewDataSource, 
         present(alert, animated: true, completion: nil)
     }
     
+    func designSetup() {
+        imageViewBackground.backgroundColor = .clear
+        imageViewBackground.layer.borderWidth = 4
+        imageViewBackground.layer.borderColor = UIColor.black.cgColor
+        imageViewBackground.layer.cornerRadius = 20 // Ändra 10 till det värde du vill ha för rundningen
+        imageViewBackground.layer.masksToBounds = true
+        
+        btnInfo.layer.borderWidth = 1
+        btnInfo.layer.borderColor = UIColor.gray.cgColor
+        btnInfo.layer.cornerRadius = 7 // Ändra 10 till det värde du vill ha för rundningen
+        btnInfo.layer.masksToBounds = true
+        
+        btnInfo.layer.shadowColor = UIColor.black.cgColor // Ställ in skuggans färg
+        btnInfo.layer.shadowOpacity = 1 // Ställ in skuggans opacitet (0 till 1)
+        btnInfo.layer.shadowOffset = CGSize(width: 0, height: 5) // Ställ in skuggans position
+        btnInfo.layer.shadowRadius = 5 // Ställ in hur utspridd skuggan ska vara
+        btnInfo.clipsToBounds = false
+        
+        btnStartGame.layer.borderWidth = 1
+        btnStartGame.layer.borderColor = UIColor.gray.cgColor
+        btnStartGame.layer.cornerRadius = 50 // Ändra 10 till det värde du vill ha för rundningen
+        btnStartGame.layer.masksToBounds = true
+        
+        btnStartGame.layer.shadowColor = UIColor.black.cgColor // Ställ in skuggans färg
+        btnStartGame.layer.shadowOpacity = 1 // Ställ in skuggans opacitet (0 till 1)
+        btnStartGame.layer.shadowOffset = CGSize(width: 0, height: 5) // Ställ in skuggans position
+        btnStartGame.layer.shadowRadius = 5 // Ställ in hur utspridd skuggan ska vara
+        btnStartGame.clipsToBounds = false
+        
+//        btnStartGame.titleLabel?.lineBreakMode = .byWordWrapping
+        btnStartGame.titleLabel?.textAlignment = .center
+        
+        
+    }
 
 }

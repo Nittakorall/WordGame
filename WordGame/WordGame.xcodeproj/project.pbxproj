@@ -12,6 +12,8 @@
 		103E20A82D9402F300C80A0D /* ChooseDifficultyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103E20A72D9402F300C80A0D /* ChooseDifficultyViewController.swift */; };
 		103E21072D959DA100C80A0D /* HighScoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103E21062D959DA100C80A0D /* HighScoreManager.swift */; };
 		1063B61F2D92AAE100092807 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1063B61E2D92AAE100092807 /* GameViewController.swift */; };
+		10E5FA162D972D42003773E2 /* nature2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 10E5FA152D972D42003773E2 /* nature2.jpg */; };
+		10E5FA182D973AFF003773E2 /* nature3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 10E5FA172D973AFF003773E2 /* nature3.jpg */; };
 		4E29CED32D9599590000BBB9 /* HighScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E29CED22D9599590000BBB9 /* HighScoreViewController.swift */; };
 		4E315F312D93F62F003C8463 /* WordsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E315F302D93F62F003C8463 /* WordsViewController.swift */; };
 		4EE638DA2D929E4A001712A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE638D92D929E4A001712A1 /* AppDelegate.swift */; };
@@ -49,6 +51,8 @@
 		103E20A72D9402F300C80A0D /* ChooseDifficultyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseDifficultyViewController.swift; sourceTree = "<group>"; };
 		103E21062D959DA100C80A0D /* HighScoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighScoreManager.swift; sourceTree = "<group>"; };
 		1063B61E2D92AAE100092807 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		10E5FA152D972D42003773E2 /* nature2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = nature2.jpg; sourceTree = "<group>"; };
+		10E5FA172D973AFF003773E2 /* nature3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = nature3.jpg; sourceTree = "<group>"; };
 		4E29CED22D9599590000BBB9 /* HighScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighScoreViewController.swift; sourceTree = "<group>"; };
 		4E315F302D93F62F003C8463 /* WordsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsViewController.swift; sourceTree = "<group>"; };
 		4EE638D62D929E4A001712A1 /* WordGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WordGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -120,6 +124,8 @@
 				4EE638DD2D929E4A001712A1 /* ViewController.swift */,
 				4EE638DF2D929E4A001712A1 /* Main.storyboard */,
 				4EE638E22D929E4D001712A1 /* Assets.xcassets */,
+				10E5FA152D972D42003773E2 /* nature2.jpg */,
+				10E5FA172D973AFF003773E2 /* nature3.jpg */,
 				4EE638E42D929E4D001712A1 /* LaunchScreen.storyboard */,
 				4EE638E72D929E4D001712A1 /* Info.plist */,
 				1063B61E2D92AAE100092807 /* GameViewController.swift */,
@@ -255,9 +261,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10E5FA182D973AFF003773E2 /* nature3.jpg in Resources */,
 				4EE638E62D929E4D001712A1 /* LaunchScreen.storyboard in Resources */,
 				4EE638E32D929E4D001712A1 /* Assets.xcassets in Resources */,
 				4EE638E12D929E4A001712A1 /* Main.storyboard in Resources */,
+				10E5FA162D972D42003773E2 /* nature2.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
