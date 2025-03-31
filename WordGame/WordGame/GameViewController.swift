@@ -85,10 +85,9 @@ class GameViewController: UIViewController {
                 
                 }
             }
-            
         }
-        
     }
+    
     @IBAction func btnCheckAnswer(_ sender: UIButton) {
         wordTimer?.invalidate()
         checkTranslation()
@@ -173,6 +172,8 @@ class GameViewController: UIViewController {
         textFieldTranslation.backgroundColor = UIColor(red: 1, green: 0.4, blue: 0.4, alpha: 0.7)
         btnCheckAnswerOutlet.isEnabled = false
         labelCorrectTranslation.alpha = 1
+        let currentWord = wordPairs[usedIndexes.last!]
+        labelCorrectTranslation.text = currentWord.english
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             self.textFieldTranslation.backgroundColor = UIColor.white
@@ -187,20 +188,6 @@ class GameViewController: UIViewController {
             self.btnCheckAnswerOutlet.isEnabled = true
             self.labelCorrectTranslation.alpha = 0
         }
-    }
-    
-    // Removes connection to NotificationCenter when View Controller is deinitialised to prevent memory leaks.
-    deinit {
-        NotificationCenter.default.removeObserver(self)
-    }
-    
-    // Inactive timers and set to nil when view disappears.
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        wordTimer?.invalidate()
-        wordTimer = nil
-        gameTimer?.invalidate()
-        gameTimer = nil
     }
     
     // Sending score and total game time to EndGameViewController when performSegue runs.
@@ -237,6 +224,7 @@ class GameViewController: UIViewController {
         showRandomSwedishWord()
         startWordTimer()
         startGameTimer()
+        NotificationCenter.default.addObserver(self, selector: #selector(timerDidReachZero), name: .timerDidReachZero, object: nil)
     }
     
     // takes the player back to the game screen when pressing 'Play Again'
