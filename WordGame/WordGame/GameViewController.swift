@@ -170,7 +170,7 @@ class GameViewController: UIViewController {
         wordTimer?.invalidate()
         score += -1
         updateScore()
-        textFieldTranslation.backgroundColor = UIColor(red: 0.8, green: 0, blue: 0, alpha: 1.0)
+        textFieldTranslation.backgroundColor = UIColor(red: 1, green: 0.4, blue: 0.4, alpha: 0.7)
         btnCheckAnswerOutlet.isEnabled = false
         labelCorrectTranslation.alpha = 1
         
